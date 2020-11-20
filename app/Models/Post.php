@@ -12,4 +12,11 @@ class Post extends Model
     protected $primaryKey = 'post_id';
     public $incrementing = true;
     public $timestamps = true;
+
+    protected $with = ['user'];
+
+    public function user() 
+    {
+        return $this->belongsTo('App\Models\User', 'ref_user_id');
+    }
 }

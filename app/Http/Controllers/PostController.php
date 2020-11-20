@@ -14,6 +14,8 @@ class PostController extends Controller
      */
     public function viewAll()
     {
+        
+        
         return Post::all();
         //
     }
