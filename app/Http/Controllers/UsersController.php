@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-use Validator;
+use Illuminate\Support\Facades\Validator;                                                                                 
 
-class UserController extends Controller
+class UsersController extends Controller
 {
 
 
     public function register(Request $request)
     {
-        $validator = Validator()::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required'

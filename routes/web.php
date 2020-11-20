@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 /*
@@ -13,11 +13,11 @@
 |
 */
 
-
+$router->get('/posts/all', 'PostController@viewAll');
 
 
 $router->get('/', function () use ($router) {
     return $router->app->version();    
 });
 
-$router->post('/register','UserController@register');
+$router->post('/register','UsersController@register');
