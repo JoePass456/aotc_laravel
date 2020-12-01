@@ -13,10 +13,14 @@ class Post extends Model
     public $incrementing = true;
     public $timestamps = true;
 
-    protected $with = ['user'];
+    protected $with = ['user', 'likes'];
 
     public function user() 
     {
         return $this->belongsTo('App\Models\User', 'ref_user_id');
+    }
+    public function likes() 
+    {
+        return $this->hasMany('App\Models\Like', 'post_id', 'id');            
     }
 }

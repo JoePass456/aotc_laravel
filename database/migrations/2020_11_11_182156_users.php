@@ -18,7 +18,7 @@ class Users extends Migration
             $table->string('name');
             $table->string('password'); 
             $table->string('email'); 
-            $table->text('bio');
+            $table->text('bio')->nullable();
             $table->timestamps();        
         });
     }

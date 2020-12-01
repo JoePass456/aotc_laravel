@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers;
+use Illuminate\Http\Request;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 /*
@@ -13,7 +14,18 @@ use App\Http\Controllers;
 |
 */
 
+$router->group(['middleware' => 'auth'], function () use ($router) {
+
+    $router->get('/api/user', function(Request $request) {
+        $user = $request->user();
+        return $user->toArray();
+    });
+
+});
+
 $router->get('/posts/all', 'PostController@viewAll');
+
+$router->get('/likes/all', 'LikeController@viewAll');
 
 
 $router->get('/', function () use ($router) {

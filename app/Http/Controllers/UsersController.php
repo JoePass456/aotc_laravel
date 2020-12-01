@@ -25,6 +25,7 @@ class UsersController extends Controller
 
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
+        $input['bio'] = "Your Bio";
         $user = User::create($input);
       
         /**Take note of this: Your user authentication access token is generated here **/

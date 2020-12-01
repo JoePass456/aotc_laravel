@@ -13,11 +13,10 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function viewAll()
-    {
-        
+    {        
         
         return Post::all();
-        //
+                          
     }
 
     /**
@@ -47,7 +46,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post)   
     {
         //
     }

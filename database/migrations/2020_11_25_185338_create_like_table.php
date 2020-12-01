@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFollowLeadsTable extends Migration
+class CreateLikeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateFollowLeadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('follow_leads', function (Blueprint $table) {
+        Schema::create('like', function (Blueprint $table) {
             $table->id();
-            $table->integer('ref_leader_user_id');
-            $table->integer('ref_follower_user_id');
+            $table->foreignId('post_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateFollowLeadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follow_leads');
+        Schema::dropIfExists('like');
     }
 }

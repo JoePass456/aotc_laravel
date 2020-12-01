@@ -13,7 +13,7 @@ class PostFactory extends Factory
     {
         return [
             'ref_user_id' => $this->faker->numberBetween($min = 1, $max = 20),
-            'post' => $this->faker->sentence($nbWords = 6),
+            'post' => $this->faker->sentence($nbWords = 20),
             'ref_parent_post' => $this->faker->numberBetween($min = 1, $max = 20),
         ];
     }
