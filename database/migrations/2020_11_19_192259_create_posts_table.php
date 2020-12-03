@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class CreatePostsTable extends Migration
 {
@@ -17,7 +18,8 @@ class CreatePostsTable extends Migration
             $table->id();
             $table->integer('ref_user_id');
             $table->text('post');
-            $table->integer('ref_parent_post');
+            $table->text('author')->nullable();
+            $table->integer('ref_parent_post')->nullable();
             $table->timestamps();
         });
     }

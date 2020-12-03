@@ -21,6 +21,8 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
         return $user->toArray();
     });
 
+    $router->post('/newpost', 'PostController@create');
+
 });
 
 $router->get('/posts/all', 'PostController@viewAll');

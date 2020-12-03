@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -13,10 +14,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function viewAll()
-    {        
-        
+    {
+
         return Post::all();
-                          
     }
 
     /**
@@ -24,9 +24,26 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $post = new Post;
+        $post->ref_user_id = request('id');
+        $post->post = request('post');
+        $post->author = request('author');
+        $post->ref_parent_post = request('parent');
+        $post->save();
+
+        // $target = \App\Models\Tag::where('tag', request('tag'))->count();
+        // if ($target === 0) {
+        //     $tag = new Tag;
+        //     $tag->tag = request('tag');
+        //     $target = \App\Models\Tag::where('tag', request('tag'))->get();
+        // };
+
+
+
+
+        return $post;
     }
 
     /**
@@ -46,7 +63,7 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)   
+    public function show(Post $post)
     {
         //
     }
