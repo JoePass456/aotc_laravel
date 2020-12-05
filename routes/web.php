@@ -26,6 +26,8 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
     $router->post('/like/add', 'LikeController@add');
     $router->post('/like/del', 'LikeController@del');
 
+    $router->post('/user/editbio', 'UsersController@editbio');
+
 });
 
 $router->get('/posts/all', 'PostController@viewAll');

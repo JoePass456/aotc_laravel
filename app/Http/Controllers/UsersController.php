@@ -33,6 +33,25 @@ class UsersController extends Controller
         $data['name'] =  $user->name;
 
         return response(['data' => $data, 'message' => 'Account created successfully!', 'status' => true]);
-    }  
+    } 
+    
+    public function editbio(Request $request) 
+    {
+        // Like::find($request->id)->delete();
+        // return Post::all();
+
+        $user = User::find($request->id);
+        $user->bio = request('bio');
+        $user->save();
+        return $user;
+    }
+
+    public function logout(Request $request){
+        $request->user()->token()->revoke();
+        $request->user()->token()->delete();
+
+        $response = 'Successfully logged out';
+        return response($response, 200);
+    }
      
 }
