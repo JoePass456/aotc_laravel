@@ -12,10 +12,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'ref_user_id' => $this->faker->numberBetween($min = 1, $max = 20),
+            'ref_user_id' => $this->faker->numberBetween($min = 1, $max = 10),
             'post' => $this->faker->sentence($nbWords = 20),
             'author' => $this->faker->optional()->name(),
-            // 'ref_parent_post' => $this->faker->optional()->numberBetween($min = 1, $max = 20),
+            'tag' => $this->faker->word()
         ];
     }
 }

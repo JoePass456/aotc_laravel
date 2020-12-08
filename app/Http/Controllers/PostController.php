@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use App\Models\Like;
 
 class PostController extends Controller
 {
@@ -29,7 +30,7 @@ class PostController extends Controller
         $post->ref_user_id = request('id');
         $post->post = request('post');
         $post->author = request('author');
-        $post->ref_parent_post = request('parent');
+        $post->tag = request('tag');
         $post->save();
 
         // $target = \App\Models\Tag::where('tag', request('tag'))->count();
@@ -43,6 +44,27 @@ class PostController extends Controller
 
 
         return $post;
+    }
+
+    public function editpost(Request $request) 
+    {
+        // Like::find($request->id)->delete();
+        // return Post::all();
+
+        $post = Post::find($request->id);
+        $post->post = request('post');
+        $post->author = request('author');
+        $post->tag = request('tag');
+        $post->save();
+        return $post;
+    }
+    public function delpost(Request $request)
+    {
+        // Like::find($request->post_id)->delete;
+        
+        Post::find($request->id)->delete();
+        return Post::all();
+
     }
 
     /**

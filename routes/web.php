@@ -22,6 +22,8 @@ $router->group(['middleware' => 'auth'], function () use ($router) {
     });
 
     $router->post('/newpost', 'PostController@create');
+    $router->post('/editpost', 'PostController@editpost');
+    $router->post('/delpost', 'PostController@delpost');
 
     $router->post('/like/add', 'LikeController@add');
     $router->post('/like/del', 'LikeController@del');

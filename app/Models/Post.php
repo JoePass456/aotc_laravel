@@ -9,7 +9,7 @@ class Post extends Model
 {
     use HasFactory;
     protected $table = 'posts';
-    protected $primaryKey = 'post_id';
+    protected $primaryKey = 'id';
     public $incrementing = true;
     public $timestamps = true;
 

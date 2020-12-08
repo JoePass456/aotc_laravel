@@ -19,8 +19,10 @@ class CreatePostsTable extends Migration
             $table->integer('ref_user_id');
             $table->text('post');
             $table->text('author')->nullable();
-            $table->integer('ref_parent_post')->nullable();
+            $table->text('tag')->nullable();
             $table->timestamps();
+
+           
         });
     }
 

@@ -15,9 +15,14 @@ class CreateLikeTable extends Migration
     {
         Schema::create('like', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('post_id')->constrained();
+            $table->unsignedBigInteger('post_id');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
+
+            $table->foreign('post_id')
+            ->references('id')
+            ->on('posts')
+            ->onDelete('cascade');
         });
     }
 

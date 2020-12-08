@@ -17,8 +17,8 @@ class LikeFactory extends Factory
     public function definition()
     {
         return [
-            'post_id' => $this->faker->numberBetween($min = 1, $max = 20),            
-            'user_id' => $this->faker->numberBetween($min = 1, $max = 20),
+            'post_id' => $this->faker->numberBetween($min = 1, $max = 10),            
+            'user_id' => $this->faker->numberBetween($min = 1, $max = 10),
         ];
     }
 }
